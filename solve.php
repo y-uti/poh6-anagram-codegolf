@@ -1,12 +1,12 @@
 <?php
 while ($w = chop(fgets(STDIN))) {
-    if ($buffer[$r = strrev($w)] && $buffer[$r]-- . ($pairs[] = min($w, $r))
-        || ++$buffer[$w] & $r == $w & $w < 1 && $centers[$w] = 0) {
-        unset($centers[$w]);
+    if ($w != ($r = strrev($w)) | $w > 0) {
+        if ($buffer[$r] && $buffer[$r]-- . ($pairs[] = min($w, $r)) || ++$buffer[$w]);
+    } else {
+        $center .= $w;
     }
 }
 
 sort($pairs);
-ksort($centers);
 
-echo $upper = join($pairs), key($centers), strrev($upper), "\n";
+echo $upper = join($pairs), $center, strrev($upper), "\n";
