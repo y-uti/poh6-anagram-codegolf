@@ -1,0 +1,1 @@
+<?php while($w=chop(fgets(STDIN)))if($b[$r=strrev($w)]&&$b[$r]--.($p[]=min($w,$r))||++$b[$w]&$r==$w&$w<1&&$c[$w]=0)unset($c[$w]);sort($p);ksort($c);echo$u=join($p),key($c),strrev($u),"\n";
