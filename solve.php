@@ -1,7 +1,7 @@
 <?php
 while ($w = chop(fgets(STDIN))) {
     if ($w != ($r = strrev($w)) | $w > 0) {
-        if ($buffer[$r] && $buffer[$r]-- . ($pairs[] = min($w, $r)) || ++$buffer[$w]);
+        if ($buffer[$r] && ($pairs[] = min($w, $r)) || ++$buffer[$w]);
     } else {
         $center .= $w;
     }
