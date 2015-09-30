@@ -15,10 +15,6 @@ while ($w = chop(fgets(STDIN))) {
 }
 
 sort($pairs);
-$upper = implode($pairs);
-$lower = strrev($upper);
-
 ksort($centers);
-$center = key($centers);
 
-echo $upper . $center . $lower . "\n";
+echo $upper = join($pairs), key($centers), strrev($upper), "\n";
