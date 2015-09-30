@@ -2,13 +2,9 @@
 fgets(STDIN);
 while ($w = chop(fgets(STDIN))) {
     $r = strrev($w);
-    if ($buffer[$r] && $buffer[$r]-- && $pairs[] = min($w, $r)) {
+    if ($buffer[$r] && $buffer[$r]-- && ($pairs[] = min($w, $r))
+        || ++$buffer[$w] && $r == $w && $centers[$w] = 0) {
         unset($centers[$w]);
-    } else {
-        ++$buffer[$w];
-        if ($r == $w) {
-            $centers[$w] = 1;
-        }
     }
 }
 
