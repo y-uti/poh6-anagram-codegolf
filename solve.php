@@ -9,4 +9,4 @@ while ($w = chop(fgets(STDIN))) {
 
 sort($pairs);
 
-echo $upper = join($pairs), $center, strrev($upper), "\n";
+echo $upper = join($pairs), $center, strrev($upper);
