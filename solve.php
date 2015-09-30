@@ -1,10 +1,6 @@
 <?php
 while ($w = chop(fgets(STDIN))) {
-    if ($w != ($r = strrev($w)) | $w > 0) {
-        if ($buffer[$r] && ($pairs[] = min($w, $r)) || ++$buffer[$w]);
-    } else {
-        $center .= $w;
-    }
+    $w != ($r = strrev($w)) | $w > 0 ? $buffer[$r] ? $pairs[] = min($w, $r) : ++$buffer[$w] : $center .= $w;
 }
 
 sort($pairs);
