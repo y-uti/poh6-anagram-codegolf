@@ -2,10 +2,8 @@
 fgets(STDIN);
 while ($w = chop(fgets(STDIN))) {
     $r = strrev($w);
-    if (array_key_exists($r, $buffer)) {
-        if (--$buffer[$r] == 0) {
-            unset($buffer[$r]);
-        }
+    if ($buffer[$r]) {
+        --$buffer[$r];
         $pairs[] = min($w, $r);
     } else {
         ++$buffer[$w];
@@ -17,7 +15,7 @@ $upper = implode($pairs);
 $lower = strrev($upper);
 
 foreach ($buffer as $w => $c) {
-    if ($w == strrev($w)) {
+    if ($w == strrev($w) && $c) {
         $center = $center ? min($center, $w) : $w;
     }
 }
