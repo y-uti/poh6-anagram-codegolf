@@ -5,8 +5,12 @@ while ($w = chop(fgets(STDIN))) {
     if ($buffer[$r]) {
         --$buffer[$r];
         $pairs[] = min($w, $r);
+        unset($centers[$w]);
     } else {
         ++$buffer[$w];
+        if ($r == $w) {
+            $centers[$w] = 1;
+        }
     }
 }
 
@@ -14,10 +18,7 @@ sort($pairs);
 $upper = implode($pairs);
 $lower = strrev($upper);
 
-foreach ($buffer as $w => $c) {
-    if ($w == strrev($w) && $c) {
-        $center = $center ? min($center, $w) : $w;
-    }
-}
+ksort($centers);
+$center = key($centers);
 
 echo $upper . $center . $lower . "\n";
